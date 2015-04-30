@@ -27,6 +27,7 @@ import ImageDraw
 
 import Adafruit_GPIO as GPIO
 import Adafruit_GPIO.SPI as SPI
+import Adafruit_GPIO.Platform as Platform
 
 
 # Constants for interacting with display registers.
@@ -138,8 +139,14 @@ class ILI9341(object):
 		# Set SPI to mode 0, MSB first.
 		spi.set_mode(0)
 		spi.set_bit_order(SPI.MSBFIRST)
-		spi.set_clock_hz(64000000)
-		# Create an image buffer.
+	
+                # Clock nerfed for the Minnowboard	
+                if(Platform.platform_detect() == 3):
+                    spi.set_clock_hz(1000000)
+                else:
+                    spi.set_clock_hz(64000000)
+		
+                # Create an image buffer.
 		self.buffer = Image.new('RGB', (width, height))
 
 	def send(self, data, is_data=True, chunk_size=4096):
