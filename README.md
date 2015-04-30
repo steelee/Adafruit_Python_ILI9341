@@ -21,8 +21,14 @@ sudo pip install RPi.GPIO
 For a BeagleBone Black make sure you have the Adafruit_BBIO library by executing:
 
 ````
-sudo pip instal Adafruit_BBIO
+sudo pip install Adafruit_BBIO
 ````
+
+For a Minnowboard or Minnowboard MAX, make sure you have the mraa library from the [Intel Repo](https://github.com/intel-iot-devkit/mraa). The easiest install method is to use npm:
+
+```bash
+npm install mraa
+```
 
 Install the library by downloading with the download link on the right, unzipping the archive, navigating inside the library's directory and executing:
 
