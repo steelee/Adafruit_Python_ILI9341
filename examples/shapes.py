@@ -39,8 +39,17 @@ SPI_DEVICE = 0
 # SPI_PORT = 1
 # SPI_DEVICE = 0
 
+# Minnowboard configuration
+# DC = 26
+# RST = 25
+# SPI_PORT = 0
+# SPI_DEVICE = 0
+
 # Create TFT LCD display class.
 disp = TFT.ILI9341(DC, rst=RST, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE, max_speed_hz=64000000))
+
+# Creation of display class under Minnowboard with mraa
+# disp = TFT.ILI9341(DC, rst=RST, spi=SPI.SpiDevMraa(SPI_PORT, SPI_DEVICE, max_speed_hz=1000000))
 
 # Initialize display.
 disp.begin()
